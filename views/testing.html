@@ -1,0 +1,115 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>2018 Player Info</title>
+	<link rel='icon' href='../resources/img/favicon.ico' type='image/x-icon'/>
+    <!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link href="../resources/css/my_style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="mydiv">
+      Hey this is MyDiv
+    </div>
+    <button type="button" class="btn btn-primary" onclick="changeText()">Div</button>
+
+    <table class="table" id="sharanstable">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button type="button" class="btn btn-primary" onclick="changeTable()">Table</button>
+    <br/><br/><br/><br/>
+
+    <p id="thingtochange"> Hello! This is a class demo that I want to do, want to change things up here.</p>
+    <br/>
+    <br/>
+    <button type="button" class="btn btn-primary" onclick="populateDropDown()">Get Dropdown Links</button>
+    <div class="dropdown">
+      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+        Dropdown button
+      </button>
+      <div class="dropdown-menu" id="whatIwantToPopulate">
+        <!--<a class="dropdown-item" href="#">Link 1</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a> -->
+      </div>
+    </div>
+    <script>
+
+    var links = ['first link', 'second link','third link'];
+      function changeText() {
+        var div = document.getElementById("mydiv");
+        console.log('the contents of myDiv are: ' + div.innerHTML);
+        div.innerHTML = "Hey I am changing you!";
+        console.log('div color is: ' + div.style.color);
+        div.style.color = "blue";
+        console.log('the new contents of myDiv are: ' + div.innerHTML);
+        console.log('div color is: ' + div.style.color);
+      }
+
+      function changeTable() {
+        var table = document.getElementById('sharanstable');
+        var firstrow = table.rows[0];
+        console.log(firstrow);
+        console.log("printing out the cells in the row");
+        for(var i=0; i< firstrow.cells.length; i++) {
+          console.log(firstrow.cells[i]);
+          firstrow.cells[i].innerHTML += " changed";
+        }
+      }
+
+      function onDropDownClick(content) {
+        console.log('called onDropDownClick() ...' + content);
+        document.getElementById('thingtochange').innerHTML = content;
+      }
+
+      function populateDropDown() {
+        var dropdown = document.getElementById('whatIwantToPopulate');
+        var myInnerHTML = "";
+        for(var i=0; i< links.length; i++) {
+          myInnerHTML += '<a class="dropdown-item" href="#" onclick="onDropDownClick('+ i +')">' + links[i] + '</a>'
+        }
+        dropdown.innerHTML = myInnerHTML;
+
+      }
+
+    </script>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+	<script src="../resources/js/my_scripts.js"></script>
+	</body>
+</html>
